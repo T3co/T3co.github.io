@@ -138,6 +138,23 @@
     padding:18px 20px;
   }
   .skill-cat{font-size:13px; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:.05em; margin-bottom:12px;}
+
+  /* Portfolio */
+  .portfolio-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:16px;
+  }
+  .portfolio-item{
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    overflow:hidden; transition:border-color .2s, transform .2s;
+  }
+  .portfolio-item:hover{border-color:var(--line-subtle); transform:translateY(-2px);}
+  .portfolio-item img{
+    width:100%; aspect-ratio:1/1; object-fit:cover; display:block;
+    background:var(--panel-hover);
+  }
+  .portfolio-caption{padding:12px 14px;}
+  .portfolio-caption .p-title{font-size:13px; font-weight:700; color:#fff; margin-bottom:3px;}
+  .portfolio-caption .p-desc{font-size:12px; color:var(--dim); line-height:1.5;}
   .chips{display:flex; flex-wrap:wrap; gap:8px;}
   .chip{
     font-family:'IBM Plex Mono',monospace; font-size:12px;
@@ -168,6 +185,7 @@
       <a href="#skills">Skills</a>
       <a href="#ai-workflows">AI Workflows</a>
       <a href="#projects">Projects</a>
+      <a href="#portfolio">Portfolio</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -339,7 +357,7 @@
       <div class="card-top">
         <span class="card-title">CyberSide <span style="font-weight:400; font-size:13px; color:var(--dim);">• Game Jam (2022)</span></span>
         <div class="card-links">
-          <a href="https://oryandev.itch.io/cyberside" target="_blank">itch.io ↗</a>
+          <a href="https://oryamdev.itch.io/cyberside" target="_blank">itch.io ↗</a>
           <a href="https://github.com/T3co/CyberSide" target="_blank">GitHub ↗</a>
         </div>
       </div>
@@ -371,10 +389,95 @@
     </div>
   </section>
 
+  <!-- PORTFOLIO -->
+  <!--
+    HOW TO USE THIS SECTION:
+    1. Create a folder named "portfolio" in your GitHub repo (same level as index.html).
+    2. Upload your images there, named exactly: portfolio-01.jpg, portfolio-02.jpg, portfolio-03.jpg, etc.
+       (jpg or png both fine, just keep the filename numbering consistent)
+    3. Edit the TITLE and DESCRIPTION text directly below for each numbered item.
+    4. To add more than 8: copy one whole <div class="portfolio-item">...</div> block,
+       paste it before </div> that closes .portfolio-grid, bump the number, done.
+    5. To remove one: delete its whole <div class="portfolio-item">...</div> block.
+  -->
+  <section id="portfolio">
+    <div class="sec-header">
+      <span class="sec-num">06.</span>
+      <h2>Portfolio</h2>
+    </div>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item">
+        <img src="portfolio/portfolio-01.jpg" alt="Portfolio image 1">
+        <div class="portfolio-caption">
+          <div class="p-title">TITLE 1</div>
+          <div class="p-desc">Short description goes here.</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="portfolio/portfolio-02.jpg" alt="Portfolio image 2">
+        <div class="portfolio-caption">
+          <div class="p-title">TITLE 2</div>
+          <div class="p-desc">Short description goes here.</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="portfolio/portfolio-03.jpg" alt="Portfolio image 3">
+        <div class="portfolio-caption">
+          <div class="p-title">TITLE 3</div>
+          <div class="p-desc">Short description goes here.</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="portfolio/portfolio-04.jpg" alt="Portfolio image 4">
+        <div class="portfolio-caption">
+          <div class="p-title">TITLE 4</div>
+          <div class="p-desc">Short description goes here.</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="portfolio/portfolio-05.jpg" alt="Portfolio image 5">
+        <div class="portfolio-caption">
+          <div class="p-title">TITLE 5</div>
+          <div class="p-desc">Short description goes here.</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="portfolio/portfolio-06.jpg" alt="Portfolio image 6">
+        <div class="portfolio-caption">
+          <div class="p-title">TITLE 6</div>
+          <div class="p-desc">Short description goes here.</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="portfolio/portfolio-07.jpg" alt="Portfolio image 7">
+        <div class="portfolio-caption">
+          <div class="p-title">TITLE 7</div>
+          <div class="p-desc">Short description goes here.</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="portfolio/portfolio-08.jpg" alt="Portfolio image 8">
+        <div class="portfolio-caption">
+          <div class="p-title">TITLE 8</div>
+          <div class="p-desc">Short description goes here.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact" style="border-bottom:none;">
     <div class="sec-header">
-      <span class="sec-num">06.</span>
+      <span class="sec-num">07.</span>
       <h2>Contact</h2>
     </div>
     <div class="contact-card">
