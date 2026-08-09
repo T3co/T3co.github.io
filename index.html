@@ -1,393 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Oryam Bibi Roubi — Software & Game Developer</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oryam Bibi Roubi - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --card-border: #1f293d;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --text-dim: #6b7280;
+            --badge-bg: rgba(59, 130, 246, 0.1);
+            --badge-border: rgba(59, 130, 246, 0.25);
+        }
 
-  :root{
-    --bg:#12151a;
-    --panel:#1a1e26;
-    --panel-hover:#222733;
-    --line:#282f3a;
-    --ink:#e6e8ec;
-    --dim:#8a94a6;
-    --accent:#3b82f6;
-    --accent-glow:rgba(59,130,246,0.15);
-    --teal:#10b981;
-    --teal-glow:rgba(16,185,129,0.12);
-  }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  *{box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg); color:var(--ink);
-    font-family:'Space Grotesk',sans-serif;
-    line-height:1.6;
-    overflow-x:hidden;
-  }
-  .mono{font-family:'IBM Plex Mono',monospace;}
-  a{color:inherit; text-decoration:none;}
-  ::selection{background:var(--accent); color:#fff;}
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
 
-  /* Background grid pattern */
-  body::before{
-    content:"";
-    position:fixed; inset:0; z-index:-1; pointer-events:none;
-    background-image:
-      linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px);
-    background-size:32px 32px;
-  }
+        /* Header / Hero Section */
+        .header {
+            text-align: center;
+            padding: 20px 0 35px 0;
+            border-bottom: 1px solid var(--card-border);
+            margin-bottom: 40px;
+        }
 
-  .shell{max-width:780px; margin:0 auto; padding:0 24px;}
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
 
-  /* ===== Topbar ===== */
-  .topbar{
-    position:sticky; top:0; z-index:20;
-    background:rgba(18,21,26,0.9); backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  .topbar-inner{
-    max-width:780px; margin:0 auto; padding:14px 24px;
-    display:flex; align-items:center; justify-content:space-between;
-  }
-  .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:15px; letter-spacing:-0.01em;}
-  .brand .pin{width:8px; height:8px; border-radius:50%; background:var(--teal); box-shadow:0 0 10px var(--teal); flex:0 0 auto;}
-  .topbar nav{display:flex; gap:20px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--dim); text-transform:uppercase; letter-spacing:.06em;}
-  .topbar nav a{transition:color .15s;}
-  .topbar nav a:hover{color:var(--accent);}
-  @media(max-width:560px){ .topbar nav{display:none;} }
+        .header p.subtitle {
+            font-size: 1.15rem;
+            color: var(--accent-blue);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
 
-  /* ===== Hero Section ===== */
-  .hero{padding:72px 0 48px; border-bottom:1px solid var(--line);}
-  .hero-tag{
-    display:inline-flex; align-items:center; gap:8px;
-    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase;
-    color:var(--teal); margin-bottom:16px; font-weight:500;
-  }
-  h1{
-    font-size:clamp(32px,6vw,48px); font-weight:700; line-height:1.1; letter-spacing:-.02em;
-    margin-bottom:12px; color:#fff;
-  }
-  h1 span{color:var(--accent);}
-  .role{font-size:16.5px; color:var(--dim); font-weight:500; margin-bottom:24px; max-width:580px; line-height:1.5;}
-  
-  .hero-contacts{
-    display:flex; flex-wrap:wrap; gap:12px 18px;
-    font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--dim);
-    margin-bottom:28px;
-  }
-  .hero-contacts a{color:var(--ink); transition:color .15s;}
-  .hero-contacts a:hover{color:var(--accent);}
+        .links-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
 
-  .hero-actions{display:flex; gap:10px; flex-wrap:wrap;}
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500;
-    padding:10px 18px; border-radius:8px; border:1px solid var(--line);
-    background:var(--panel); color:var(--ink); transition:all .15s ease;
-  }
-  .btn:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-1px);}
-  .btn.primary{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600;}
-  .btn.primary:hover{background:#2563eb; color:#fff; border-color:#2563eb;}
+        .link-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(31, 41, 61, 0.6);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
 
-  /* ===== Content Sections ===== */
-  section{padding:48px 0; border-bottom:1px solid var(--line);}
-  .sec-header{
-    display:flex; align-items:center; gap:12px; margin-bottom:20px;
-  }
-  .sec-num{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--accent); font-weight:600;}
-  h2{font-size:22px; font-weight:700; letter-spacing:-.01em; color:#fff;}
+        .link-chip:hover {
+            color: #fff;
+            border-color: var(--accent-blue);
+            background: rgba(59, 130, 246, 0.15);
+        }
 
-  .summary-box{
-    font-size:15px; color:#c5cbe3; line-height:1.75; text-align:justify;
-  }
+        /* Section Styling */
+        section {
+            margin-bottom: 40px;
+        }
 
-  /* ===== Education & Experience Cards ===== */
-  .card{
-    background:var(--panel); border:1px solid var(--line); border-radius:12px;
-    padding:22px 24px; margin-bottom:16px; transition:border-color .15s;
-  }
-  .card:hover{border-color:rgba(59,130,246,0.4);}
-  .card-top{display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:6px; flex-wrap:wrap;}
-  .card-title{font-weight:700; font-size:16px; color:#fff;}
-  .card-subtitle{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--accent);}
-  .card-links{display:flex; gap:10px; font-family:'IBM Plex Mono',monospace; font-size:11.5px;}
-  .card-links a{color:var(--accent); text-decoration:none;}
-  .card-links a:hover{text-decoration:underline;}
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
 
-  ul.bullets{list-style:none; margin-top:10px;}
-  ul.bullets li{
-    font-size:13.5px; color:#c5cbe3; padding-left:18px; position:relative; margin-bottom:6px; line-height:1.6;
-  }
-  ul.bullets li::before{
-    content:"•"; position:absolute; left:0; color:var(--accent); font-weight:bold;
-  }
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--card-border);
+        }
 
-  /* ===== Skills Section ===== */
-  .skill-row{margin-bottom:16px;}
-  .skill-row:last-child{margin-bottom:0;}
-  .skill-cat{
-    font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600;
-    color:var(--accent); margin-bottom:8px; text-transform:uppercase; letter-spacing:.05em;
-  }
-  .chips{display:flex; flex-wrap:wrap; gap:8px;}
-  .chip{
-    font-family:'IBM Plex Mono',monospace; font-size:12px; padding:6px 12px; border-radius:6px;
-    background:rgba(255,255,255,0.03); border:1px solid var(--line); color:var(--ink);
-  }
-  .familiar-box{
-    margin-top:20px; padding:16px 20px; background:var(--teal-glow);
-    border-left:3px solid var(--teal); border-radius:4px;
-  }
-  .familiar-title{font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600; color:var(--teal); text-transform:uppercase; margin-bottom:4px;}
-  .familiar-text{font-size:13px; color:#d1d5db; font-style:italic;}
+        /* Summary Box */
+        .summary-box {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 24px;
+            font-size: 1rem;
+            color: #d1d5db;
+            line-height: 1.7;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
 
-  /* ===== Contact Section ===== */
-  .contact-card{
-    background:var(--panel); border:1px solid var(--line); border-radius:12px;
-    padding:28px 24px; text-align:left;
-  }
-  .contact-card h3{font-size:18px; font-weight:700; color:#fff; margin-bottom:8px;}
-  .contact-card p{font-size:14px; color:var(--dim); margin-bottom:20px;}
+        /* Experience & Education Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 22px;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transition: border-color 0.2s ease;
+        }
 
-  footer{
-    padding:32px 0; text-align:center;
-    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--dim);
-  }
-</style>
+        .card:hover {
+            border-color: #2d3748;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .card-tag {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            color: var(--accent-blue);
+            border-radius: 12px;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: #9ca3af;
+            font-size: 0.95rem;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            position: absolute;
+            left: 4px;
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 18px;
+        }
+
+        .skill-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            font-family: 'Fira Code', monospace;
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 4px 8px;
+            border-radius: 5px;
+            border: 1px solid #334155;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--card-border);
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="brand"><span class="pin"></span>Oryam Bibi Roubi</div>
-    <nav>
-      <a href="#summary">Summary</a>
-      <a href="#education">Education</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</div>
-
-<div class="shell">
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-tag">Software & Game Developer</div>
-    <h1>Oryam Bibi <span>Roubi</span></h1>
-    <p class="role">Building games, embedded systems, and AI-assisted creative workflows with Unity, C#, and modern technologies.</p>
-
-    <div class="hero-contacts">
-      <span>📞 054-6744665</span>
-      <span>✉️ <a href="mailto:oryambibi@gmail.com">oryambibi@gmail.com</a></span>
-      <span>🌐 <a href="https://T3co.github.io" target="_blank">T3co.github.io</a></span>
-    </div>
-
-    <div class="hero-actions">
-      <a class="btn primary" href="mailto:oryambibi@gmail.com">Contact Me</a>
-      <a class="btn" href="https://github.com/T3co" target="_blank">GitHub ↗</a>
-      <a class="btn" href="https://oryamdev.itch.io" target="_blank">itch.io ↗</a>
-      <a class="btn" href="Oryam_Bibi_Roubi_CV.pdf" download>CV (PDF) ↓</a>
-    </div>
-  </header>
-
-  <!-- SUMMARY -->
-  <section id="summary">
-    <div class="sec-header">
-      <span class="sec-num">01.</span>
-      <h2>Summary</h2>
-    </div>
-    <div class="summary-box">
-      Software and game developer with hands-on freelancer and independent experience building projects with Unity, C#, and modern development technologies. Started developing games independently and expanded through personal projects, game jams, engineering coursework, and embedded systems. Experience spans game development, 3D/multiplayer systems, and AI-assisted workflows. Comfortable taking projects from concept through implementation and delivery, with a strong focus on understanding how technologies work under the hood. Passionate about guiding others, optimizing creative pipelines, and exploring the intersection of technology and art.
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="sec-header">
-      <span class="sec-num">02.</span>
-      <h2>Education</h2>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <span class="card-title">Kinneret College of Engineering</span>
-        <span class="card-subtitle">Electrical & Computer Engineering (2 Years)</span>
-      </div>
-      <ul class="bullets">
-        <li>Coursework covering digital logic, embedded systems, low-level programming, C/C++, and core electrical engineering concepts.</li>
-        <li>Completed a full-scale senior engineering project integrating FPGA, embedded hardware, networking, mobile development, computer vision, and cloud services.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="sec-header">
-      <span class="sec-num">03.</span>
-      <h2>Projects & Game Development</h2>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <span class="card-title">The Hell Master <span style="font-weight:400; font-size:13px; color:var(--dim);">• Solo Game Jam</span></span>
-        <div class="card-links">
-          <a href="https://oryamdev.itch.io/the-hell-master" target="_blank">itch.io ↗</a>
-          <a href="https://github.com/T3co/The_Hell_Master" target="_blank">GitHub ↗</a>
+    <header class="header">
+        <h1>Oryam Bibi Roubi</h1>
+        <p class="subtitle">Software & Game Developer | AI & Embedded Systems</p>
+        <div class="links-bar">
+            <span class="link-chip">📞 054-6744665</span>
+            <a href="mailto:oryambibi@gmail.com" class="link-chip">✉️ oryambibi@gmail.com</a>
+            <a href="https://T3co.github.io" target="_blank" class="link-chip">🌐 T3co.github.io</a>
+            <a href="https://github.com/T3co" target="_blank" class="link-chip">💻 github.com/T3co</a>
+            <a href="https://oryamdev.itch.io" target="_blank" class="link-chip">🎮 oryamdev.itch.io</a>
         </div>
-      </div>
-      <ul class="bullets">
-        <li>Complete game developed independently in Unity in approximately six hours, from concept to playable release.</li>
-        <li>Developed gameplay and systems in Unity/C# while independently managing art direction, visual assets, animation, and environment design.</li>
-        <li>Worked under strict time constraints while prioritizing visual quality and a complete, playable result.</li>
-      </ul>
-    </div>
+    </header>
 
-    <div class="card">
-      <div class="card-top">
-        <span class="card-title">CyberSide <span style="font-weight:400; font-size:13px; color:var(--dim);">• Game Jam (2022)</span></span>
-        <div class="card-links">
-          <a href="https://oryandev.itch.io/cyberside" target="_blank">itch.io ↗</a>
-          <a href="https://github.com/T3co/CyberSide" target="_blank">GitHub ↗</a>
+    <section id="summary">
+        <h2 class="section-title">Summary</h2>
+        <div class="summary-box">
+            Software and game developer with hands-on freelancer and independent experience building projects with Unity, C#, and modern development technologies. Started developing games independently 6 years ago and expanded through personal projects, game jams, engineering coursework, and embedded systems. Experience spans game development, 3D/multiplayer systems, and AI-assisted workflows. Comfortable taking projects from concept through implementation and delivery, with a strong focus on understanding how technologies work under the hood.
         </div>
-      </div>
-      <ul class="bullets">
-        <li>Game developed and shipped independently during a 2022 game jam. Built in Unity, handling programming, art direction, and visual style.</li>
-      </ul>
-    </div>
+    </section>
 
-    <div class="card">
-      <div class="card-top">
-        <span class="card-title">NPC_Mobile <span style="font-weight:400; font-size:13px; color:var(--dim);">• Senior Engineering Project</span></span>
-        <div class="card-links">
-          <a href="https://github.com/T3co/NPC_Mobile" target="_blank">GitHub ↗</a>
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Kinneret College of Engineering</span>
+                <span class="card-tag">Electrical & Computer Engineering (2 Years)</span>
+            </div>
+            <ul class="bullet-list">
+                <li>Coursework covering digital logic, embedded systems, low-level programming, C/C++, and core electrical engineering concepts.</li>
+                <li>Completed senior engineering project integrating FPGA, embedded hardware, networking, mobile dev, computer vision, and cloud services.</li>
+            </ul>
         </div>
-      </div>
-      <ul class="bullets">
-        <li>WiFi-controlled IoT robot built as a full embedded system, centered around a DE10-Lite FPGA and controlled through a custom Android application.</li>
-        <li>Implemented ESP32-CAM live video streaming, computer vision object detection, and hardware integrations.</li>
-      </ul>
-    </div>
+    </section>
 
-    <div class="card">
-      <div class="card-top">
-        <span class="card-title">Multiplayer & Networking Prototypes</span>
-      </div>
-      <ul class="bullets">
-        <li>Multiple multiplayer prototypes using Unity Netcode and Photon covering client/server communication and state synchronization.</li>
-      </ul>
-    </div>
-  </section>
+    <section id="ai-workflows">
+        <h2 class="section-title">AI & Creative Workflows</h2>
+        <div class="card">
+            <ul class="bullet-list">
+                <li><strong style="color: #fff;">AI Video & Media Creation:</strong> 1 year of experience building AI video clips and generative media using Claude Code, ComfyUI, and customized pipelines.</li>
+                <li><strong style="color: #fff;">Generative AI & Image Pipelines:</strong> Experience with Stable Diffusion, ComfyUI, prompt engineering, and controlled AI image generation.</li>
+                <li><strong style="color: #fff;">AI-Assisted Development:</strong> Build AI-assisted workflows using Claude Code, Cursor, ChatGPT, Gemini, and Codex.</li>
+                <li><strong style="color: #fff;">Automation & Agents:</strong> Experiment with AI agents for software development, workflow optimization, and creative process acceleration.</li>
+            </ul>
+        </div>
+    </section>
 
-  <!-- AI & CREATIVE WORKFLOWS -->
-  <section id="ai-workflows">
-    <div class="sec-header">
-      <span class="sec-num">04.</span>
-      <h2>AI & Creative Workflows</h2>
-    </div>
-    <div class="card">
-      <ul class="bullets">
-        <li><strong>Generative AI & Image Pipelines:</strong> Experience with Stable Diffusion, ComfyUI, prompt engineering, and controlled AI image generation.</li>
-        <li><strong>AI-Assisted Development:</strong> Build AI-assisted workflows using Claude Code, Cursor, ChatGPT, Gemini, and Codex.</li>
-        <li><strong>Automation & Agents:</strong> Experiment with AI agents for software development, workflow optimization, and creative process acceleration.</li>
-      </ul>
-    </div>
-  </section>
+    <section id="skills">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>AI & Generative Tools</h3>
+                <div class="skill-tags">
+                    <span class="tag">Stable Diffusion</span><span class="tag">ComfyUI</span><span class="tag">Prompt Engineering</span><span class="tag">ChatGPT</span><span class="tag">Gemini</span><span class="tag">Claude</span><span class="tag">Claude Code</span><span class="tag">Cursor</span><span class="tag">Codex</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>AI Workflows & Fine-Tuning</h3>
+                <div class="skill-tags">
+                    <span class="tag">LoRA Training</span><span class="tag">Fine-Tuning</span><span class="tag">2D/3D AI Pipelines</span><span class="tag">3D AI Animation</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>Game & 3D Development</h3>
+                <div class="skill-tags">
+                    <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Unity Netcode</span><span class="tag">Photon</span><span class="tag">Blender</span><span class="tag">Multiplayer Systems</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>Software & Scripting</h3>
+                <div class="skill-tags">
+                    <span class="tag">Python</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">Java</span><span class="tag">.NET</span><span class="tag">VHDL</span><span class="tag">SQL</span><span class="tag">Git</span><span class="tag">Linux</span><span class="tag">Bash</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>Embedded & Hardware</h3>
+                <div class="skill-tags">
+                    <span class="tag">ESP32</span><span class="tag">Arduino</span><span class="tag">FPGA DE10-Lite</span><span class="tag">I2C</span><span class="tag">PWM</span><span class="tag">RS232</span><span class="tag">Firebase</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="sec-header">
-      <span class="sec-num">05.</span>
-      <h2>Skills & Technologies</h2>
-    </div>
+    <section id="projects">
+        <h2 class="section-title">Projects & Game Development</h2>
 
-    <div class="skill-row">
-      <div class="skill-cat">AI & Generative Tools</div>
-      <div class="chips">
-        <span class="chip">Stable Diffusion</span>
-        <span class="chip">ComfyUI</span>
-        <span class="chip">Prompt Engineering</span>
-        <span class="chip">ChatGPT</span>
-        <span class="chip">Gemini</span>
-        <span class="chip">Claude</span>
-        <span class="chip">Claude Code</span>
-        <span class="chip">Cursor</span>
-        <span class="chip">Codex</span>
-      </div>
-    </div>
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">The Hell Master</span>
+                <span class="card-tag">Solo Game Jam</span>
+            </div>
+            <ul class="bullet-list">
+                <li>Complete game developed independently in Unity in 6 hours, handling C# programming, art, animation, and level design under tight constraints.</li>
+            </ul>
+        </div>
 
-    <div class="skill-row" style="margin-top: 16px;">
-      <div class="skill-cat">Game & 3D Development</div>
-      <div class="chips">
-        <span class="chip">Unity</span>
-        <span class="chip">C#</span>
-        <span class="chip">Unity Netcode</span>
-        <span class="chip">Photon</span>
-        <span class="chip">3D Modeling (Blender)</span>
-        <span class="chip">Multiplayer Systems</span>
-      </div>
-    </div>
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">CyberSide</span>
+                <span class="card-tag">Game Jam (2022)</span>
+            </div>
+            <ul class="bullet-list">
+                <li>Game developed and shipped independently during a 2022 game jam built in Unity, handling programming, art direction, and visual style.</li>
+            </ul>
+        </div>
 
-    <div class="skill-row" style="margin-top: 16px;">
-      <div class="skill-cat">Software & Scripting</div>
-      <div class="chips">
-        <span class="chip">Python</span>
-        <span class="chip">C</span>
-        <span class="chip">C++</span>
-        <span class="chip">Java</span>
-        <span class="chip">.NET</span>
-        <span class="chip">VHDL</span>
-        <span class="chip">SQL</span>
-        <span class="chip">Git</span>
-        <span class="chip">Linux</span>
-        <span class="chip">Bash</span>
-      </div>
-    </div>
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">NPC_Mobile</span>
+                <span class="card-tag">Senior Engineering Project</span>
+            </div>
+            <ul class="bullet-list">
+                <li>WiFi-controlled IoT robot built as a full embedded system, centered around a DE10-Lite FPGA, Android app, ESP32-CAM, and computer vision.</li>
+            </ul>
+        </div>
 
-    <div class="skill-row" style="margin-top: 16px;">
-      <div class="skill-cat">Embedded & Hardware</div>
-      <div class="chips">
-        <span class="chip">ESP32</span>
-        <span class="chip">Arduino</span>
-        <span class="chip">FPGA DE10-Lite</span>
-        <span class="chip">I2C</span>
-        <span class="chip">PWM</span>
-        <span class="chip">RS232</span>
-        <span class="chip">Firebase</span>
-      </div>
-    </div>
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Multiplayer & Networking Prototypes</span>
+            </div>
+            <ul class="bullet-list">
+                <li>Multiple multiplayer prototypes using Unity Netcode and Photon covering client/server communication and state synchronization.</li>
+            </ul>
+        </div>
+    </section>
 
-    <div class="familiar-box">
-      <div class="familiar-title">Familiar With:</div>
-      <div class="familiar-text">LoRA Training & Fine-Tuning, 2D/3D AI Integration Pipelines, 3D AI Animation Workflows, Custom AI Model Evaluation</div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" style="border-bottom:none;">
-    <div class="sec-header">
-      <span class="sec-num">06.</span>
-      <h2>Contact</h2>
-    </div>
-    <div class="contact-card">
-      <h3>Let's Connect</h3>
-      <p>Feel free to reach out via phone or email for inquiries, walk-throughs, or potential projects.</p>
-      <div class="hero-actions">
-        <a class="btn primary" href="mailto:oryambibi@gmail.com">oryambibi@gmail.com</a>
-        <a class="btn" href="tel:0546744665">054-6744665</a>
-        <a class="btn" href="https://github.com/T3co" target="_blank">github.com/T3co ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>© 2026 Oryam Bibi Roubi</footer>
-
-</div>
+    <footer>
+        <p>© Oryam Bibi Roubi | Built for Web & Portfolio</p>
+    </footer>
 
 </body>
 </html>
