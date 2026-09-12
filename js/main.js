@@ -1,4 +1,4 @@
-// הפטיש — נגרות אישית — shared site behavior
+// הפטיש נגרות אישית - shared site behavior
 
 document.addEventListener("DOMContentLoaded", () => {
   initMobileNav();
@@ -35,7 +35,7 @@ function initMobileNav() {
 }
 
 /* ---------------------------------------------------------------------- */
-/* Full photo gallery (projects.html) — loads gallery-manifest.json,       */
+/* Full photo gallery (projects.html) - loads gallery-manifest.json,       */
 /* renders filterable tiles + a lightbox. Manifest is built by             */
 /* images/raw/curate.py from the raw photo dump.                          */
 /* ---------------------------------------------------------------------- */
@@ -166,9 +166,9 @@ function openLightbox(items, startIndex) {
 }
 
 /* ---------------------------------------------------------------------- */
-/* Contact form — submits to FormSubmit.co, which emails hnd.ltd@gmail.com */
+/* Contact form - submits to FormSubmit.co, which emails hnd.ltd@gmail.com */
 /* First submission triggers a one-time confirmation email FormSubmit     */
-/* sends to that inbox — it must be clicked once before mail flows.       */
+/* sends to that inbox - it must be clicked once before mail flows.       */
 /* ---------------------------------------------------------------------- */
 const CONTACT_FORM_ENDPOINT = "https://formsubmit.co/ajax/hnd.ltd@gmail.com";
 
