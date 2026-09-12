@@ -680,6 +680,107 @@ body.nav-open {
   display: none;
 }
 
+.filter-tab-count {
+  color: var(--sand);
+  font-size: 0.8em;
+}
+
+.filter-tab.is-active .filter-tab-count {
+  color: var(--cream-2);
+}
+
+.gallery-meta {
+  color: var(--sand);
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+}
+
+/* ---- Lightbox ---- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(10, 8, 6, 0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox-img {
+  max-width: min(92vw, 1100px);
+  max-height: 88vh;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close,
+.lightbox-nav {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--line-dark);
+  color: var(--paper);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.lightbox-close {
+  top: 20px;
+  inset-inline-end: 20px;
+  width: 42px;
+  height: 42px;
+}
+
+.lightbox-close svg {
+  width: 18px;
+  height: 18px;
+}
+
+.lightbox-nav {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+}
+
+.lightbox-nav svg {
+  width: 22px;
+  height: 22px;
+}
+
+.lightbox-prev {
+  inset-inline-start: 20px;
+}
+
+.lightbox-next {
+  inset-inline-end: 20px;
+}
+
+@media (max-width: 600px) {
+  .lightbox-nav {
+    width: 40px;
+    height: 40px;
+  }
+  .lightbox-prev {
+    inset-inline-start: 8px;
+  }
+  .lightbox-next {
+    inset-inline-end: 8px;
+  }
+}
+
 /* ==========================================================================
    Split / about band
    ========================================================================== */

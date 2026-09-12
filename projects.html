@@ -86,15 +86,15 @@
 
     <section class="section">
       <div class="container">
-        <div class="filter-tabs">
-          <button class="filter-tab is-active" data-filter="all">הכל</button>
-          <button class="filter-tab" data-filter="kitchens">מטבחים</button>
-          <button class="filter-tab" data-filter="home">נגרות לבית</button>
-          <button class="filter-tab" data-filter="commercial">מסחרי</button>
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">פרויקטים נבחרים</span>
+            <h2>סיפורי פרויקט מלאים</h2>
+          </div>
         </div>
 
         <div class="work-grid-4">
-          <a class="project-tile work-card" href="project-kitchen.html" data-category="kitchens">
+          <a class="work-card" href="project-kitchen.html">
             <div class="ph-block ph-block--square ph-block--photo"><img class="ph-img" src="images/kitchen-wide.jpg" alt="מטבח פרטי בעיצוב אפור ועץ אגוז" /></div>
             <div class="work-card-meta">
               <h3>מטבח פרטי — עיצוב אפור ועץ</h3>
@@ -102,15 +102,7 @@
             </div>
           </a>
 
-          <a class="project-tile work-card" href="project-kitchen.html" data-category="kitchens">
-            <div class="ph-block ph-block--square ph-block--photo"><img class="ph-img" src="images/kitchen-detail.jpg" alt="פרט מטבח פרטי" /></div>
-            <div class="work-card-meta">
-              <h3>מטבח פרטי — פרטי עבודה</h3>
-              <span>מטבחים</span>
-            </div>
-          </a>
-
-          <a class="project-tile work-card" href="project-console.html" data-category="home">
+          <a class="work-card" href="project-console.html">
             <div class="ph-block ph-block--square ph-block--photo"><img class="ph-img" src="images/console-wide.jpg" alt="קונסולת כניסה בעץ אגוז" /></div>
             <div class="work-card-meta">
               <h3>קונסולת כניסה בעץ אגוז</h3>
@@ -118,15 +110,7 @@
             </div>
           </a>
 
-          <a class="project-tile work-card" href="project-console.html" data-category="home">
-            <div class="ph-block ph-block--square ph-block--photo"><img class="ph-img" src="images/console-detail.jpg" alt="פרט עבודת עץ אגוז" /></div>
-            <div class="work-card-meta">
-              <h3>קונסולת כניסה — פרטי עבודה</h3>
-              <span>נגרות לבית</span>
-            </div>
-          </a>
-
-          <a class="project-tile work-card" href="project-retail-deli.html" data-category="commercial">
+          <a class="work-card" href="project-retail-deli.html">
             <div class="ph-block ph-block--square ph-block--photo"><img class="ph-img" src="images/retail-deli-wide.jpg" alt="מעדנייה וחנות מזון" /></div>
             <div class="work-card-meta">
               <h3>מעדנייה וחנות מזון</h3>
@@ -134,30 +118,28 @@
             </div>
           </a>
 
-          <a class="project-tile work-card" href="project-retail-deli.html" data-category="commercial">
-            <div class="ph-block ph-block--square ph-block--photo"><img class="ph-img" src="images/retail-deli-detail-2.jpg" alt="פרט עמדת מעדנייה" /></div>
-            <div class="work-card-meta">
-              <h3>מעדנייה — פינת עמדה</h3>
-              <span>מסחרי</span>
-            </div>
-          </a>
-
-          <a class="project-tile work-card" href="project-retail-wine.html" data-category="commercial">
+          <a class="work-card" href="project-retail-wine.html">
             <div class="ph-block ph-block--square ph-block--photo"><img class="ph-img" src="images/retail-wine-wide.jpg" alt="חנות יין" /></div>
             <div class="work-card-meta">
               <h3>חנות יין — מדפי תצוגה</h3>
               <span>מסחרי</span>
             </div>
           </a>
-
-          <a class="project-tile work-card" href="project-retail-wine.html" data-category="commercial">
-            <div class="ph-block ph-block--square ph-block--photo"><img class="ph-img" src="images/retail-wine-detail-2.jpg" alt="פרט מדפי יין" /></div>
-            <div class="work-card-meta">
-              <h3>חנות יין — פרטי עבודה</h3>
-              <span>מסחרי</span>
-            </div>
-          </a>
         </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" data-gallery>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">כל התמונות</span>
+            <h2>הגלריה המלאה</h2>
+          </div>
+        </div>
+        <p class="gallery-meta" data-gallery-count></p>
+        <div class="filter-tabs" data-gallery-tabs></div>
+        <div class="work-grid-4" data-gallery-grid></div>
       </div>
     </section>
 
